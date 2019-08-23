@@ -7,9 +7,8 @@ namespace Laboratorio_2_OOP_201902
 {
     public class Board
     {
-        // Diccionarios
 
-        
+        string[,] Diccionario;
 
         //Constantes
         private const int DEFAULT_NUMBER_OF_PLAYERS = 2;
@@ -166,7 +165,7 @@ namespace Laboratorio_2_OOP_201902
             {      //Revisar si la carta recibida en el parmetro es Combat o Special
 
                 if (card.GetType().Name == nameof(CombatCard))
-                {   //En caso de que sea de combate , agregarla al diccionariodel jugador correspondiente , revisando el parmetroplayerId
+                {   //En caso de que sea de combate , agregarla al diccionario del jugador correspondiente , revisando el parmetroplayerId
 
                     if (playerId == 0 || playerId == 1)
 
@@ -196,18 +195,18 @@ namespace Laboratorio_2_OOP_201902
                 //Revisar si no se ha agregado el capitan en el
 
 
-        public void DestroyCombatCards()
+        public void DestroyCards()
         {
-            this.meleeCards = new List<CombatCard>[DEFAULT_NUMBER_OF_PLAYERS];
-            this.rangeCards = new List<CombatCard>[DEFAULT_NUMBER_OF_PLAYERS];
-            this.longRangeCards = new List<CombatCard>[DEFAULT_NUMBER_OF_PLAYERS];
+                    //Guardar las cartas de capitan en una variable temporal
+                    List<Card>[] captainCards = new List<Card>[DEFAULT_NUMBER_OF_PLAYERS]
+                    {
+                          new List<Card>(playerCards[0]["captain"]),
+                          new List<Card>(playerCards[1]["captain"])
+                    };
+                        //Destruir todas las cartas
+                        //IMPLEMENTE
         }
-        public void DestroySpecialCards()
-        {
-            this.specialMeleeCards = new SpecialCard[DEFAULT_NUMBER_OF_PLAYERS];
-            this.specialRangeCards = new SpecialCard[DEFAULT_NUMBER_OF_PLAYERS];
-            this.specialLongRangeCards = new SpecialCard[DEFAULT_NUMBER_OF_PLAYERS];
-            this.weatherCards = new List<SpecialCard>();
+
         }
         public int[] GetMeleeAttackPoints()
         {
