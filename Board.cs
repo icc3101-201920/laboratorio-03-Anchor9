@@ -8,7 +8,7 @@ namespace Laboratorio_2_OOP_201902
     public class Board
     {
 
-        string[,] Diccionario;
+        Array[,] Diccionario = new Array[playerID, cardType];
 
         //Constantes
         private const int DEFAULT_NUMBER_OF_PLAYERS = 2;
